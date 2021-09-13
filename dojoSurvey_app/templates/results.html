@@ -10,11 +10,14 @@
 </head>
 <body class="container">
     <div class="ninja_form">
-        <h1>{{ session['name'] }}</h1>
-        <p>Dojo Location: <span class="output">{{ session['location'] }}</span></p>
-        <p>Favorite Language: <span class="output">{{ session['language'] }}</span></p>
-        <p>Comments: <span class="output">{{ session['comments'] }}</span></p>
-
+    {% for survey in surveys %}
+        <div>
+            <h1>{{ survey.name }}</h1>
+            <p>Dojo Location: <span class="output">{{ survey.location }}</span></p>
+            <p>Favorite Language: <span class="output">{{ survey.language }}</span></p>
+            <p>Comments: <span class="output">{{ survey.comments }}</span></p>
+        </div>
+    {% endfor %}
         <a href="/"><input class="ninja_button" type="button" value="Home"></a>
     </div>
 

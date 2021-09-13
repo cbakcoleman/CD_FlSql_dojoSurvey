@@ -4,13 +4,16 @@ from dojoSurvey_app.models.survey import Survey
 
 @app.route('/')
 def home():
-    return render_template("index.html", session = session)
+    return render_template("survey.html")
 
 @app.route('/store', methods=['POST'])
 def store():
-    new_survey = Survey.add_survey(request.form)
+    if not Survey.validate_survey(request.form):
+        return redirect("/")
+    Survey.save(request.form)
     return redirect('/results')
 
 @app.route('/results')
 def show_results():
-    return render_template('results.html')
+    all_surveys = Survey.all_surveys()
+    return render_template('results.html', surveys = all_surveys)
