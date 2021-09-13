@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <form class="ninja_form" action="/store" method="post">
+            <div>
+                <h2>Dojo Survey</h2>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input class="form-control" type="text" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Dojo Location:</label>
+                <select class="form-control" name="location">
+                    <option disabled selected hidden>--Select a Location--</option>
+                    <option name="bellevue">Bellevue, WA</option>
+                    <option name="boise">Boise, ID</option>
+                    <option name="chicago">Chicago, IL</option>
+                    <option name="los_angeles">Los Angeles, CA</option>
+                    <option name="silicon_valley">Silicon Valley, CA</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="language">Favorite Language:</label>
+                <select class="form-control" name="language">
+                    <option disabled selected hidden>--Select a Language--</option>
+                    <option name="html">HTML</option>
+                    <option name="css">CSS</option>
+                    <option name="javascript">JavaScript</option>
+                    <option name="python">Python</option>
+                    <option name="c_sharp">C#</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="comments">Comments:</label>
+                </div>
+                <div>
+                    <textarea class="form-control" name="comments" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <a href="/store">
+                    <input class="ninja_button" type="submit" value="Submit">
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
