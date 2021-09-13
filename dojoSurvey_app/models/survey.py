@@ -17,6 +17,12 @@ class Survey:
         if len(survey["name"]) < 3:
             flash("Name must be at least 3 characters.", "name")
             is_valid = False
+        if "location" not in survey:
+            flash("Location can not be blank.", "location")
+            is_valid = False
+        if "language" not in survey:
+            flash("Language can not be blank.", "language")
+            is_valid = False
         return is_valid
 
     @classmethod

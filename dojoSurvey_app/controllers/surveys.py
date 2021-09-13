@@ -9,8 +9,8 @@ def home():
 @app.route('/store', methods=['POST'])
 def store():
     if not Survey.validate_survey(request.form):
-        return redirect("/")
-    Survey.save(request.form)
+        return redirect()
+    new_survey = Survey.add_survey( request.form)
     return redirect('/results')
 
 @app.route('/results')
